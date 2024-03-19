@@ -6,3 +6,4 @@
 - php artisan migrate
 - php artisan make:seeder PostTableSeeder tạo seeder
 - php artisan db:seed --class PostTableSeeder chạy seeder
+- php artisan make:controller PostController --resource Tạo controller
