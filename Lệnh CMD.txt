@@ -1,1 +1,5 @@
+Đã sử dụng lệnh
 composer create-project --prefer-dist laravel/laravel project-name
+
+Lệnh có chức năng tương tự
+laravel new project-name
