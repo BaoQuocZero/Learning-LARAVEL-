@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Post;
+
 class PostController extends Controller
 {
     /**
@@ -13,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        echo 'index';
+        //Lấy dữ liệu
+        $posts = Post::all();
+        //Render ra wiew
+        return view('posts.index', ['posts' => $posts]);
     }
 
     /**
