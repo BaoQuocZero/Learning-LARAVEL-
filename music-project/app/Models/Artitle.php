@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artitle extends Model
 {
+    protected $table = 'baiviet';
+    public $timestamps = false;
     use HasFactory;
 }
