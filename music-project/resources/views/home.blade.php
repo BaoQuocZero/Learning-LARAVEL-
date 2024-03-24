@@ -16,6 +16,7 @@
                     <a href="{{route('articles.show', $article->ma_bviet)}}"
                         class="text-decoration-none">{{$article->tomtat}}</a>
                 </p>
+
             </div>
         </div>
     </div>
