@@ -28,7 +28,7 @@
                 <img src="{{$user->hinh_User}}" alt="" width="50" height="50">
             </td>
             <td>
-                <button class="btn btn-warning">Sửa</button>
+                <a class="btn btn-warning" href="{{route('UserController.edit', $user->ma_User)}}">Sửa</a>
                 <button class="btn btn-danger">Xóa</button>
             </td>
         </tr>

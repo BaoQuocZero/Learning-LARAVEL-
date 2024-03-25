@@ -11,5 +11,9 @@ class userCRUD extends Model
     public $timestamps = false;
 
     protected $table = 'userCRUD';
+
+    // Tên cột chính của bảng
+    protected $primaryKey = 'ma_User';
+
     use HasFactory;
 }
