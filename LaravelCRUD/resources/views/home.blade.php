@@ -12,7 +12,11 @@
             <th scope="col">Email</th>
             <th scope="col">Ngày tạo</th>
             <th scope="col">Hình</th>
-            <th scope="col"></th>
+            <th scope="col">
+                <form action="/create" method="GET">
+                    <button class="btn btn-primary">Thêm</button>
+                </form>
+            </th>
         </tr>
 
     </thead>
@@ -28,8 +32,15 @@
                 <img src="{{$user->hinh_User}}" alt="" width="50" height="50">
             </td>
             <td>
-                <a class="btn btn-warning" href="{{route('UserController.edit', $user->ma_User)}}">Sửa</a>
-                <button class="btn btn-danger">Xóa</button>
+                <form action="/edit/{{$user->ma_User}}" method="GET" style="display: inline;">
+                    <button type="submit" class="btn btn-warning">Sửa</button>
+                </form>
+
+                <form action="/delete/{{$user->ma_User}}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Xóa</button>
+                </form>
             </td>
         </tr>
         @endforeach

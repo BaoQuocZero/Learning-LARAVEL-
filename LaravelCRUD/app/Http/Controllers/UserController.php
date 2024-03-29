@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -36,7 +36,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate dữ liệu được gửi từ form
+        $validatedData = $request->validate([
+            'hinh_User' => 'required|url',
+            'ho_Ten' => 'required',
+            'email' => 'required|email',
+            'ngay_Tao' => 'required|date',
+        ]);
+
+        // Tạo một bản ghi mới trong cơ sở dữ liệu
+        $userCRUD = new userCRUD();
+        $userCRUD->hinh_User = $request->hinh_User;
+        $userCRUD->ho_Ten = $request->ho_Ten;
+        $userCRUD->email = $request->email;
+        $userCRUD->ngay_Tao = $request->ngay_Tao;
+        $userCRUD->save();
+
+        // Chuyển hướng người dùng sau khi thêm thành công
+        return redirect()->route('home')->with('success', 'Thêm mới thành công');
     }
 
     /**
@@ -100,8 +117,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(userCRUD $ma_User)
     {
-        //
+        $ma_User->delete();
+        return redirect()->route('home')->with('success', 'Xóa thành công');
     }
 }
